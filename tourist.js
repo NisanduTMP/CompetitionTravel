@@ -16,11 +16,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentQuoteIndex = nextQuoteIndex;
             }, 20);
         }, 1000);
-
     }
 
     quotes[currentQuoteIndex].style.display = 'flex';
     quotes[currentQuoteIndex].classList.add('show');
 
     setInterval(showNextQuote, 7000);
+
+    const navToggle = document.querySelector('.nav__toggle');
+    const navLinks = document.querySelector('.nav__links');
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
 });
