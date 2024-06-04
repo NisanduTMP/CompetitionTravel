@@ -10723,3 +10723,65 @@ textarea.form-control {
   font-weight: 500;
   color: #e3b04b
 }
+
+@media (max-width: 1200px) {
+  .header__image img:nth-child(1) {
+    max-width: 300px;
+  }
+
+  .header__image img:nth-child(2) {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 900px) {
+  nav {
+    justify-content: space-between;
+  }
+
+  .nav__toggle {
+    display: block;
+    position: absolute;
+    right: 1rem; 
+  }
+
+  .nav__links {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-color);
+    z-index: 10;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
+    transform: translateY(-100%); 
+    opacity: 0; 
+  }
+
+  .nav__links.show {
+    display: flex; 
+    transform: translateY(0);
+    opacity: 1; 
+  }
+
+  .header__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .header__image {
+    min-height: 500px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .subscribe__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
