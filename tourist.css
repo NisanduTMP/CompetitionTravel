@@ -125,15 +125,16 @@ nav {
 }
 
 .destination__card {
-  position: relative;
   overflow: hidden;
+  position: relative;
+  isolation: isolate;
   cursor: pointer;
   border-radius: 1rem;
 }
 
 .destination__card img {
   width: 100%;
-  height: 400px;
+  height: 300px;
   object-fit: cover;
   border-radius: 1rem;
 }
@@ -142,7 +143,7 @@ nav {
   position: absolute;
   width: calc(100% - 2rem);
   padding: 1rem;
-  bottom: -12rem;
+  bottom: -20rem;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -159,8 +160,7 @@ nav {
 }
 
 .destination__title {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
 
@@ -223,7 +223,7 @@ nav {
 
 #quoteContainer {
   position: relative;
-  height: 125px;
+  height: 180px;
   padding: 28 px;
   display: flex;
   align-items: center;
@@ -239,7 +239,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
+  font-size: 25px;
   color: var(--text-dark);
   text-align: center;
   line-height: 1.5;
@@ -261,4 +261,85 @@ nav {
 .quote.show {
   display: flex;
   opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  .header__image img:nth-child(1) {
+    max-width: 300px;
+  }
+
+  .header__image img:nth-child(2) {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 900px) {
+  nav {
+    justify-content: space-between;
+  }
+
+  .nav__toggle {
+    display: block;
+    position: absolute;
+    right: 1rem; 
+  }
+
+  .nav__links {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-color);
+    z-index: 10;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; 
+    transform: translateY(-100%); 
+    opacity: 0; 
+  }
+
+  .nav__links.show {
+    display: flex; 
+    transform: translateY(0);
+    opacity: 1; 
+  }
+
+  .header__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .header__image {
+    min-height: 500px;
+  }
+
+  .destination__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .trip__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .destination__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trip__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .gallary__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .subscribe__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
